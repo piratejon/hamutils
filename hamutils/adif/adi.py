@@ -127,6 +127,8 @@ class ADIReader:
                     state = 'c'
 
             if state == 'c':
+                if f_name == 'app_lotw_eof':
+                    raise StopIteration
                 return f_name, f_data, f_len, f_type
             else:
                 if c == '\n':
